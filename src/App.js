@@ -1,6 +1,7 @@
 // External variables
 const express = require("express");
 const mongoose = require('mongoose');
+const cors = require("cors");
 const userController = require('./Routes/userController');
 // THIS IS WRONG NEVER DO THAT !! Only for the task we put the DB Link here!! NEVER DO THAAAT AGAIN !!
 const MongoURI =  'mongodb+srv://nadahesham:test1234@cluster0.5uvnx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority' ;
@@ -14,6 +15,7 @@ const User = require('./models/User');
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json()) // To parse the incoming requests with JSON payloads// configurations
+app.use(cors());
 // Mongo DB
 mongoose.connect(MongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
 .then(result =>console.log("MongoDB is now connected") )
