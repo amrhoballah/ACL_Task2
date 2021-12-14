@@ -33,6 +33,10 @@ const userSchema = new Schema({
   Job: {
     type: String,
     required: true
+  },
+  Password: {
+    type: String,
+    required: true
   }
 }, { timestamps: true });
 mongoose.models = {}
