@@ -40,3 +40,5 @@ app.post('/user/login', userController.login)
 app.listen(port, () => {
     console.log(`Listening to requests on http://localhost:${port}`);
   });
+
+module.exports = app;

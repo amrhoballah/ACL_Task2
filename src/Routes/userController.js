@@ -20,7 +20,7 @@ exports.addUser = async (req, res) => {
     const dbUser = new User(user);
     dbUser.save()
       .then(result => {
-        res.send(result);
+        res.send("added");
         console.log("added");
       })
       .catch(err => {
@@ -56,19 +56,16 @@ exports.getUser = (req, res) => {
 
 exports.updateUser = (req, res) => {
   User.findByIdAndUpdate(req.params.id, req.body).then(result => {
-
     res.status(200).send("User updated ");
     console.log('The User is Updated successfully !');
   }).catch(err => {
     console.log(err);
   });
-
 };
 
 //Deleting an existing user
 exports.deleteUser = (req, res) => {
   User.findByIdAndRemove(req.params.id).then(result => {
-
     res.status(200).send("User Deleted ");
     console.log("The User is deleted successfully !");
   }).catch(err => {
